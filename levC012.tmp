@@ -1,0 +1,251 @@
+[gd_scene load_steps=16 format=3 uid="uid://cfjqw180o5wn6"]
+
+[ext_resource type="Script" path="res://level_select.gd" id="1_f3gsn"]
+[ext_resource type="Texture2D" uid="uid://cigu10e1u4yrg" path="res://Espaço.png" id="1_s754d"]
+[ext_resource type="Texture2D" uid="uid://cfenjqtnjntfh" path="res://Planeta_Jupiter.png" id="2_1hwr0"]
+[ext_resource type="Texture2D" uid="uid://ddabqqso4c2lm" path="res://Planeta_Netuno.png" id="3_ciegj"]
+[ext_resource type="FontFile" uid="uid://bbvqbvo8bcb8f" path="res://Xolonium-Regular.ttf" id="3_nxqoe"]
+[ext_resource type="Texture2D" uid="uid://dghwnvxnwwxfj" path="res://Asteroide1.png" id="4_kukvp"]
+[ext_resource type="Texture2D" uid="uid://cprc785u43w2g" path="res://Planeta_Urano.png" id="4_r4k5b"]
+[ext_resource type="PackedScene" uid="uid://dsx5cnrg2po27" path="res://ranking.tscn" id="4_rfm64"]
+[ext_resource type="Texture2D" uid="uid://y3oxknvh2ktk" path="res://Asteroide2.png" id="5_2uf6c"]
+[ext_resource type="Texture2D" uid="uid://fy2xn1ljbq3a" path="res://Planeta_Terra.png" id="5_i4rdh"]
+[ext_resource type="Texture2D" uid="uid://cp8g8ugui55g0" path="res://Asteroide3.png" id="6_lu0vw"]
+[ext_resource type="Texture2D" uid="uid://cp7r4ucugtlqc" path="res://Foguete01.png" id="6_xxpkh"]
+
+[sub_resource type="Animation" id="Animation_ueraj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-660, -512)]
+}
+
+[sub_resource type="Animation" id="Animation_yyq6d"]
+resource_name = "new_animation"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-660, -512), Vector2(-720, -482), Vector2(-780, -452), Vector2(-810, -392), Vector2(-840, -332), Vector2(-870, -272), Vector2(-810, -302), Vector2(-780, -362), Vector2(-750, -422), Vector2(-690, -452), Vector2(-660, -512)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cdnws"]
+_data = {
+"RESET": SubResource("Animation_ueraj"),
+"new_animation": SubResource("Animation_yyq6d")
+}
+
+[node name="LevelSelect" type="CanvasLayer"]
+script = ExtResource("1_f3gsn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -660.0
+offset_top = -512.0
+offset_right = 1388.0
+offset_bottom = 512.0
+texture = ExtResource("1_s754d")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_cdnws")
+}
+
+[node name="Timer" type="Timer" parent="TextureRect"]
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1306.0
+offset_top = 498.0
+offset_right = 1413.0
+offset_bottom = 605.0
+texture = ExtResource("2_1hwr0")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 813.0
+offset_right = 1724.0
+offset_bottom = 920.0
+texture = ExtResource("4_kukvp")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1345.0
+offset_top = 903.0
+offset_right = 1452.0
+offset_bottom = 1010.0
+texture = ExtResource("5_2uf6c")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1751.0
+offset_top = 388.0
+offset_right = 1858.0
+offset_bottom = 495.0
+texture = ExtResource("4_kukvp")
+expand_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1827.0
+offset_top = 427.0
+offset_right = 1934.0
+offset_bottom = 534.0
+texture = ExtResource("5_2uf6c")
+expand_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1749.0
+offset_top = 294.0
+offset_right = 1856.0
+offset_bottom = 401.0
+texture = ExtResource("6_lu0vw")
+expand_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 895.0
+offset_right = 826.0
+offset_bottom = 1002.0
+texture = ExtResource("6_lu0vw")
+expand_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 852.0
+offset_right = 793.0
+offset_bottom = 959.0
+texture = ExtResource("5_2uf6c")
+expand_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 884.0
+offset_right = 787.0
+offset_bottom = 991.0
+texture = ExtResource("6_lu0vw")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1824.0
+offset_top = 346.0
+offset_right = 1931.0
+offset_bottom = 453.0
+texture = ExtResource("3_ciegj")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 1616.0
+offset_top = 874.0
+offset_right = 1723.0
+offset_bottom = 981.0
+texture = ExtResource("4_r4k5b")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 360.0
+offset_right = 786.0
+offset_bottom = 467.0
+texture = ExtResource("5_i4rdh")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 460.0
+offset_right = 1316.0
+offset_bottom = 716.0
+rotation = 3.6425
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_xxpkh")
+
+[node name="ButtonV" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 175.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("3_nxqoe")
+theme_override_font_sizes/font_size = 50
+text = "Voltar
+"
+
+[node name="Button1" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 162.0
+offset_top = 125.0
+offset_right = 242.0
+offset_bottom = 205.0
+
+[node name="Button2" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 312.0
+offset_top = 125.0
+offset_right = 392.0
+offset_bottom = 205.0
+text = "2
+"
+
+[node name="Button3" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 462.0
+offset_top = 125.0
+offset_right = 542.0
+offset_bottom = 205.0
+text = "3
+"
+
+[node name="Button4" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 612.0
+offset_top = 125.0
+offset_right = 692.0
+offset_bottom = 205.0
+text = "4"
+
+[node name="Button5" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 762.0
+offset_top = 125.0
+offset_right = 842.0
+offset_bottom = 205.0
+text = "5"
+
+[node name="Button6" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 162.0
+offset_top = 250.0
+offset_right = 242.0
+offset_bottom = 330.0
+text = "6"
+
+[node name="Button11" parent="." instance=ExtResource("4_rfm64")]
+offset_left = 162.0
+offset_top = 375.0
+offset_right = 242.0
+offset_bottom = 455.0
+text = "11"
+
+[connection signal="pressed" from="ButtonV" to="." method="_on_button_v_pressed"]
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]

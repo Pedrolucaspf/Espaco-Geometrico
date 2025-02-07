@@ -1,0 +1,220 @@
+[gd_scene load_steps=26 format=3 uid="uid://dtlx3g4bkapqo"]
+
+[ext_resource type="Script" path="res://figura.gd" id="1_1j0o3"]
+[ext_resource type="Texture2D" uid="uid://cj8g3hk1aagfc" path="res://Triângulo Equilátero.png" id="2_dhxbs"]
+[ext_resource type="Texture2D" uid="uid://c3won1sb72dys" path="res://Paralelogramo 1.png" id="2_htp15"]
+[ext_resource type="Texture2D" uid="uid://bh5bowhjsifko" path="res://Paralelogramo 2.png" id="3_0xhs3"]
+[ext_resource type="Texture2D" uid="uid://chfajywk524pg" path="res://Quadrilátero 1.png" id="4_7t5kg"]
+[ext_resource type="Texture2D" uid="uid://eiwtq6v10nxl" path="res://Quadrilátero 2.png" id="5_bdhmd"]
+[ext_resource type="Texture2D" uid="uid://co7e08sp3i1fh" path="res://Quadrilátero 3.png" id="6_kpexx"]
+[ext_resource type="Texture2D" uid="uid://d4hutaigp7ghr" path="res://Quadrilátero 4.png" id="7_mpu37"]
+[ext_resource type="Texture2D" uid="uid://cacypu65u5uvl" path="res://Retângulo.png" id="8_aopoh"]
+[ext_resource type="Texture2D" uid="uid://dmrw1bxq1dk7e" path="res://Retas cortadas 1.png" id="9_sl842"]
+[ext_resource type="Texture2D" uid="uid://c7gj6t1yutfys" path="res://Retas cortadas 3.png" id="10_fi235"]
+[ext_resource type="Texture2D" uid="uid://037xd7gbjkdf" path="res://Retas cortadas 6.png" id="11_d2k3m"]
+[ext_resource type="Texture2D" uid="uid://dvjr5ltosloue" path="res://Retas cortadas 4.png" id="12_0xro5"]
+[ext_resource type="Texture2D" uid="uid://be4ne6yensf65" path="res://Retas cortadas 5.png" id="13_1gf0r"]
+[ext_resource type="Texture2D" uid="uid://du2bh17wwlwy3" path="res://Retas cortadas B (1).png" id="14_gv1an"]
+[ext_resource type="Texture2D" uid="uid://bwwsmt6yiuqv8" path="res://Trapézio .png" id="14_x4k6f"]
+[ext_resource type="Texture2D" uid="uid://cxadbfavgga7h" path="res://Trapézio 2.png" id="15_8ees8"]
+[ext_resource type="Texture2D" uid="uid://bmu50u3jucit7" path="res://Retas cortadas B (2).png" id="15_h3h0b"]
+[ext_resource type="Texture2D" uid="uid://lfv1il7b3uqb" path="res://Retas cortadas B (3).png" id="16_tqssg"]
+[ext_resource type="Texture2D" uid="uid://dq5ujj8xgknj1" path="res://Retas cortadas B (4).png" id="17_epre4"]
+[ext_resource type="Texture2D" uid="uid://k1yphed4jkj6" path="res://Triângulo Escaleno (1).png" id="17_q3126"]
+[ext_resource type="Texture2D" uid="uid://cl2dm1kgs3v8t" path="res://Retas Cortadas B .png" id="18_hhxnd"]
+[ext_resource type="Texture2D" uid="uid://cjmeqor2lap0x" path="res://Triângulo Isósceles  (5).png" id="18_u21lq"]
+[ext_resource type="Texture2D" uid="uid://bgfb4ndwecp5p" path="res://Triângulo Retângulo.png" id="19_rqau3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxica"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_htp15")
+}],
+"loop": true,
+"name": &"paralelogramo 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0xhs3")
+}],
+"loop": true,
+"name": &"paralelogramo 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7t5kg")
+}],
+"loop": true,
+"name": &"quadrilatero 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bdhmd")
+}],
+"loop": true,
+"name": &"quadrilatero 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kpexx")
+}],
+"loop": true,
+"name": &"quadrilatero 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mpu37")
+}],
+"loop": true,
+"name": &"quadrilatero 4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_aopoh")
+}],
+"loop": true,
+"name": &"retangulo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_sl842")
+}],
+"loop": true,
+"name": &"retas cortadas 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_fi235")
+}],
+"loop": true,
+"name": &"retas cortadas 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d2k3m")
+}],
+"loop": true,
+"name": &"retas cortadas 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0xro5")
+}],
+"loop": true,
+"name": &"retas cortadas 4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_1gf0r")
+}],
+"loop": true,
+"name": &"retas cortadas 5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gv1an")
+}],
+"loop": true,
+"name": &"retas cortadas B - 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_h3h0b")
+}],
+"loop": true,
+"name": &"retas cortadas B - 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_tqssg")
+}],
+"loop": true,
+"name": &"retas cortadas B - 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_epre4")
+}],
+"loop": true,
+"name": &"retas cortadas B - 4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_hhxnd")
+}],
+"loop": true,
+"name": &"retas cortadas B - 5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_x4k6f")
+}],
+"loop": true,
+"name": &"trapézio 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_8ees8")
+}],
+"loop": true,
+"name": &"trapézio 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dhxbs")
+}],
+"loop": true,
+"name": &"triang_equilatero",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_q3126")
+}],
+"loop": true,
+"name": &"triang_escaleno",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_u21lq")
+}],
+"loop": true,
+"name": &"triang_isosceles",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_rqau3")
+}],
+"loop": true,
+"name": &"triang_retangulo",
+"speed": 5.0
+}]
+
+[node name="Figura" type="Node2D"]
+script = ExtResource("1_1j0o3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qxica")
+animation = &"triang_equilatero"

@@ -1,0 +1,418 @@
+[gd_scene load_steps=23 format=3 uid="uid://bw2icea5tolqr"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_8brsu"]
+[ext_resource type="FontFile" uid="uid://bbvqbvo8bcb8f" path="res://Xolonium-Regular.ttf" id="2_2dbqw"]
+[ext_resource type="Texture2D" uid="uid://cigu10e1u4yrg" path="res://Espaço.png" id="2_jfarq"]
+[ext_resource type="Texture2D" uid="uid://cp8g8ugui55g0" path="res://Asteroide3.png" id="4_2fhnq"]
+[ext_resource type="Texture2D" uid="uid://y3oxknvh2ktk" path="res://Asteroide2.png" id="5_1y8w0"]
+[ext_resource type="Texture2D" uid="uid://d33smork0bqt1" path="res://Planeta_Marte.png" id="5_cedua"]
+[ext_resource type="Texture2D" uid="uid://cmqdik3koi0eq" path="res://OVNI_02.png" id="6_f3fyh"]
+[ext_resource type="Texture2D" uid="uid://dghwnvxnwwxfj" path="res://Asteroide1.png" id="7_ksf3o"]
+[ext_resource type="PackedScene" uid="uid://c2of8odtoa7wb" path="res://game_manual.tscn" id="9_mdlx0"]
+[ext_resource type="PackedScene" uid="uid://dw4sn6e0bdrnj" path="res://data_excluder.tscn" id="10_ihn3s"]
+
+[sub_resource type="Animation" id="Animation_hjyis"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(723, 326)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_avbwh"]
+resource_name = "animation1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(723, 326), Vector2(747, 354)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_812r8"]
+_data = {
+"RESET": SubResource("Animation_hjyis"),
+"animation1": SubResource("Animation_avbwh")
+}
+
+[sub_resource type="Animation" id="Animation_1qx3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-154, 41)]
+}
+
+[sub_resource type="Animation" id="Animation_6xcol"]
+resource_name = "animation2"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-154, 41), Vector2(929, -60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v3ccl"]
+_data = {
+"RESET": SubResource("Animation_1qx3f"),
+"animation2": SubResource("Animation_6xcol")
+}
+
+[sub_resource type="Animation" id="Animation_gawmx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, -317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jkght"]
+resource_name = "animation4"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(53, 100), Vector2(19, -323)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uur3c"]
+_data = {
+"RESET": SubResource("Animation_gawmx"),
+"animation4": SubResource("Animation_jkght")
+}
+
+[sub_resource type="Animation" id="Animation_av2b6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-324, 29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_wkice"]
+resource_name = "animation3"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-324, 29), Vector2(225, 423)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yx65"]
+_data = {
+"RESET": SubResource("Animation_av2b6"),
+"animation3": SubResource("Animation_wkice")
+}
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8brsu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jfarq")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 723.0
+offset_top = 326.0
+offset_right = 979.0
+offset_bottom = 582.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_2fhnq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2"]
+libraries = {
+"": SubResource("AnimationLibrary_812r8")
+}
+
+[node name="Timer1" type="Timer" parent="TextureRect2"]
+wait_time = 2.0
+autostart = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -154.0
+offset_top = 41.0
+offset_right = 102.0
+offset_bottom = 297.0
+rotation = 0.10472
+texture = ExtResource("5_1y8w0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect3"]
+libraries = {
+"": SubResource("AnimationLibrary_v3ccl")
+}
+
+[node name="Timer2" type="Timer" parent="TextureRect3"]
+wait_time = 2.0
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = 1258.0
+offset_top = 486.0
+offset_right = 2118.0
+offset_bottom = 1346.0
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_cedua")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+offset_left = 25.0
+offset_top = -317.0
+offset_right = 537.0
+offset_bottom = 195.0
+texture = ExtResource("6_f3fyh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect6"]
+libraries = {
+"": SubResource("AnimationLibrary_uur3c")
+}
+
+[node name="Timer3" type="Timer" parent="TextureRect6"]
+wait_time = 5.0
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = -324.0
+offset_top = 29.0
+offset_right = -68.0
+offset_bottom = 285.0
+scale = Vector2(2, 2)
+texture = ExtResource("7_ksf3o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect5"]
+libraries = {
+"": SubResource("AnimationLibrary_5yx65")
+}
+
+[node name="Timer4" type="Timer" parent="TextureRect5"]
+wait_time = 3.0
+
+[node name="MessageLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_top = 83.0
+offset_right = 68.0
+offset_bottom = 242.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_2dbqw")
+theme_override_font_sizes/font_size = 64
+text = "Espaço Geométrico"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -252.0
+offset_right = 103.0
+offset_bottom = -202.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2dbqw")
+theme_override_font_sizes/font_size = 30
+text = "Jogar"
+
+[node name="ManualButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -192.0
+offset_right = 101.0
+offset_bottom = -142.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2dbqw")
+theme_override_font_sizes/font_size = 30
+text = "Como jogar"
+
+[node name="DeleteSaveButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -132.0
+offset_right = 103.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2dbqw")
+theme_override_font_sizes/font_size = 18
+text = "Excluir dados salvos"
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -72.0
+offset_right = 103.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_2dbqw")
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="GameManual" parent="." instance=ExtResource("9_mdlx0")]
+visible = false
+
+[node name="DataExcluder" parent="." instance=ExtResource("10_ihn3s")]
+
+[connection signal="timeout" from="TextureRect2/Timer1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="TextureRect3/Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="TextureRect6/Timer3" to="." method="_on_timer_3_timeout"]
+[connection signal="timeout" from="TextureRect5/Timer4" to="." method="_on_timer_4_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ManualButton" to="." method="_on_manual_button_pressed"]
+[connection signal="pressed" from="DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]
+[connection signal="pressed" from="DeleteSaveButton" to="DataExcluder" method="_on_delete_save_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="okbutton" from="GameManual" to="." method="_on_game_manual_okbutton"]
+[connection signal="okbutton" from="DataExcluder" to="." method="_on_data_excluder_okbutton"]

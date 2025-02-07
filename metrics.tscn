@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://xgbjwo44fd4o"]
+
+[ext_resource type="Texture2D" uid="uid://dndceadu1te4o" path="res://Mortes.png" id="1_8k1qx"]
+[ext_resource type="Texture2D" uid="uid://tv5wvfc516rt" path="res://Número de planetas viajados.png" id="2_xu7f8"]
+[ext_resource type="Texture2D" uid="uid://bn0nlqh8anoyl" path="res://X (errado).png" id="3_l7ww2"]
+[ext_resource type="FontFile" uid="uid://bbvqbvo8bcb8f" path="res://Xolonium-Regular.ttf" id="5_1r605"]
+
+[node name="Metrics" type="Node2D"]
+
+[node name="DeathCounter" type="Sprite2D" parent="."]
+position = Vector2(128, 64)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8k1qx")
+
+[node name="PlanetCounter" type="Sprite2D" parent="."]
+position = Vector2(320, 96)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xu7f8")
+
+[node name="ErrorCounter" type="Sprite2D" parent="."]
+position = Vector2(512, 64)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_l7ww2")
+
+[node name="DeathCounterLabel" type="Label" parent="."]
+offset_left = 162.0
+offset_top = 20.0
+offset_right = 219.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("5_1r605")
+theme_override_font_sizes/font_size = 80
+text = "0"
+
+[node name="PlanetCounterLabel" type="Label" parent="."]
+offset_left = 398.0
+offset_top = 20.0
+offset_right = 455.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("5_1r605")
+theme_override_font_sizes/font_size = 80
+text = "0"
+
+[node name="ErrorCounterLabel" type="Label" parent="."]
+offset_left = 549.0
+offset_top = 20.0
+offset_right = 606.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("5_1r605")
+theme_override_font_sizes/font_size = 80
+text = "0"

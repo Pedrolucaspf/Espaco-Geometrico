@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvgsq0xdk5f5a"]
+
+[ext_resource type="Script" path="res://pause.gd" id="1_d21l7"]
+[ext_resource type="Texture2D" uid="uid://dy3qws88xdddl" path="res://Pause.png" id="2_01g8o"]
+[ext_resource type="FontFile" uid="uid://bbvqbvo8bcb8f" path="res://Xolonium-Regular.ttf" id="3_5ljac"]
+
+[node name="Pause" type="CanvasLayer"]
+script = ExtResource("1_d21l7")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+offset_left = 34.0
+offset_top = 28.0
+offset_right = 290.0
+offset_bottom = 284.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("2_01g8o")
+stretch_mode = 0
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+process_mode = 2
+offset_left = 103.0
+offset_top = 32.0
+offset_right = 871.0
+offset_bottom = 480.0
+color = Color(0.0901961, 0.137255, 0.223529, 1)
+
+[node name="ResumeButton" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 100.0
+offset_right = 579.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("3_5ljac")
+theme_override_font_sizes/font_size = 30
+text = "Continuar"
+
+[node name="LevelSelectButton" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 192.0
+offset_right = 579.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("3_5ljac")
+theme_override_font_sizes/font_size = 30
+text = "Voltar ao menu de fases"
+
+[node name="QuitButton" type="Button" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 284.0
+offset_right = 579.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("3_5ljac")
+theme_override_font_sizes/font_size = 30
+text = "Sair do jogo"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

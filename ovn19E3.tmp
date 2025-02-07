@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpn0gvd7e7coo"]
+
+[ext_resource type="Script" path="res://ovni.gd" id="1_7xqvg"]
+[ext_resource type="Texture2D" uid="uid://dmp7nqastwvml" path="res://OVNI_01.png" id="1_x705l"]
+[ext_resource type="Texture2D" uid="uid://cmqdik3koi0eq" path="res://OVNI_02.png" id="2_qn7l0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huqrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x705l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qn7l0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xuc7l"]
+radius = 73.0
+height = 482.0
+
+[node name="OVNI" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_7xqvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_huqrs")
+frame = 1
+frame_progress = 0.647212
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.54747e-13, -3)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CapsuleShape2D_xuc7l")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collide_with_areas = true

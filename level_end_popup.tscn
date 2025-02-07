@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://qiu8wqmm011p"]
+
+[ext_resource type="FontFile" uid="uid://bbvqbvo8bcb8f" path="res://Xolonium-Regular.ttf" id="1_b86x8"]
+[ext_resource type="Script" path="res://level_end_popup.gd" id="1_hxaem"]
+[ext_resource type="PackedScene" uid="uid://xgbjwo44fd4o" path="res://metrics.tscn" id="3_16a07"]
+[ext_resource type="Texture2D" uid="uid://drppjginuc8nn" path="res://Estrela.png" id="4_5a755"]
+[ext_resource type="Texture2D" uid="uid://sy74exrydcm5" path="res://Estrela_apagada.png" id="5_x2n0f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1pdb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5a755")
+}],
+"loop": true,
+"name": &"acesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x2n0f")
+}],
+"loop": true,
+"name": &"apagada",
+"speed": 5.0
+}]
+
+[node name="LevelEndNotif" type="CanvasLayer"]
+script = ExtResource("1_hxaem")
+
+[node name="Popup" type="ColorRect" parent="."]
+offset_left = 103.0
+offset_top = 32.0
+offset_right = 871.0
+offset_bottom = 480.0
+color = Color(0.0901961, 0.137255, 0.223529, 1)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Popup"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 25.0
+offset_right = 499.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("1_b86x8")
+theme_override_font_sizes/font_size = 28
+text = "Nível concluído!"
+
+[node name="Metrics" parent="Popup" instance=ExtResource("3_16a07")]
+position = Vector2(0, 50)
+
+[node name="Estrela_1" type="AnimatedSprite2D" parent="Popup"]
+position = Vector2(256, 220)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1pdb5")
+animation = &"apagada"
+
+[node name="Estrela_2" type="AnimatedSprite2D" parent="Popup"]
+position = Vector2(384, 220)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1pdb5")
+animation = &"apagada"
+
+[node name="Estrela_3" type="AnimatedSprite2D" parent="Popup"]
+position = Vector2(512, 220)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1pdb5")
+animation = &"apagada"
+
+[node name="Button" type="Button" parent="Popup"]
+modulate = Color(0.54902, 0.698039, 0.329412, 1)
+layout_mode = 0
+offset_left = 295.0
+offset_top = 300.0
+offset_right = 473.0
+offset_bottom = 423.0
+theme_override_fonts/font = ExtResource("1_b86x8")
+theme_override_font_sizes/font_size = 30
+text = "Prosseguir"
+
+[node name="EventStartTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="MetricsDelayTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="StarDelayTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Popup/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,610 @@
+[gd_scene load_steps=22 format=3 uid="uid://bco0gehja0e82"]
+
+[ext_resource type="Script" path="res://level_01.gd" id="1_3hmhb"]
+[ext_resource type="PackedScene" uid="uid://ci141jawudcqb" path="res://background_espaço.tscn" id="1_vbp7m"]
+[ext_resource type="PackedScene" uid="uid://dsao8tfj8bu54" path="res://Asteroide.tscn" id="2_1ekio"]
+[ext_resource type="PackedScene" uid="uid://bmfkhjy0aoi2e" path="res://planeta_jupiter.tscn" id="2_liva2"]
+[ext_resource type="PackedScene" uid="uid://brfb1wof4yhed" path="res://planeta_terra.tscn" id="2_sek8i"]
+[ext_resource type="PackedScene" uid="uid://dnyyfcwli2qj8" path="res://Foguete.tscn" id="3_d6grf"]
+[ext_resource type="PackedScene" uid="uid://gm10vkh7heev" path="res://planeta_urano.tscn" id="6_rkrwn"]
+[ext_resource type="PackedScene" uid="uid://b8y34puviunh" path="res://planeta_marte.tscn" id="6_visnw"]
+[ext_resource type="PackedScene" uid="uid://w7oxeq8mw16c" path="res://planeta_netuno.tscn" id="7_gb4ir"]
+[ext_resource type="Script" path="res://path_follow_2d.gd" id="9_fbdl8"]
+[ext_resource type="PackedScene" uid="uid://dtlx3g4bkapqo" path="res://figura.tscn" id="11_tl7hs"]
+[ext_resource type="PackedScene" uid="uid://c065dlbwy0p4n" path="res://user_text_box.tscn" id="12_tifgt"]
+[ext_resource type="PackedScene" uid="uid://mli62v1wfxfg" path="res://finish_line.tscn" id="13_kgh4x"]
+[ext_resource type="PackedScene" uid="uid://vogy05tmjfq0" path="res://metricshud.tscn" id="14_8u05g"]
+[ext_resource type="PackedScene" uid="uid://qiu8wqmm011p" path="res://level_end_popup.tscn" id="15_rfdbf"]
+[ext_resource type="PackedScene" uid="uid://cvgsq0xdk5f5a" path="res://pause.tscn" id="16_eo80r"]
+[ext_resource type="PackedScene" uid="uid://cpn0gvd7e7coo" path="res://ovni.tscn" id="17_p3hyk"]
+
+[sub_resource type="Curve2D" id="Curve2D_5fs6r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1029, 108, 0, 0, 0, 0, 1069, 126, 0, 0, 0, 0, 1120, 157, 0, 0, 0, 0, 1155, 209, 0, 0, 0, 0, 1174, 276, 0, 0, 0, 0, 1154, 353, 0, 0, 0, 0, 1096, 422, 0, 0, 0, 0, 1031, 448, 0, 0, 0, 0, 969, 452, 0, 0, 0, 0, 911, 425, 0, 0, 0, 0, 858, 362, 0, 0, 0, 0, 834, 270, 0, 0, 0, 0, 862, 178, 0, 0, 0, 0, 924, 120, 0, 0, 0, 0, 973, 109, 0, 0, 0, 0, 1029, 108)
+}
+point_count = 16
+
+[sub_resource type="Curve2D" id="Curve2D_42c75"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1611, 579, 0, 0, 0, 0, 1615, 583, 0, 0, 0, 0, 1712, 606, 0, 0, 0, 0, 1798, 637, 0, 0, 0, 0, 1873, 694, 0, 0, 0, 0, 1925, 744, 0, 0, 0, 0, 1951, 798, 0, 0, 0, 0, 1981, 845, 0, 0, 0, 0, 1998, 906, 0, 0, 0, 0, 1991, 1017, 0, 0, 0, 0, 1951, 1131, 0, 0, 0, 0, 1880, 1228, 0, 0, 0, 0, 1880, 1228, 0, 0, 0, 0, 1773, 1302, 0, 0, 0, 0, 1773, 1302, 0, 0, 0, 0, 1699, 1339, 0, 0, 0, 0, 1699, 1339, 0, 0, 0, 0, 1510, 1333, 0, 0, 0, 0, 1510, 1333, 0, 0, 0, 0, 1423, 1299, 0, 0, 0, 0, 1386, 1286, 0, 0, 0, 0, 1321, 1244, 0, 0, 0, 0, 1295, 1208, 0, 0, 0, 0, 1295, 1208, 0, 0, 0, 0, 1248, 1141, 0, 0, 0, 0, 1234, 1087, 0, 0, 0, 0, 1221, 969, 0, 0, 0, 0, 1218, 879, 0, 0, 0, 0, 1265, 747, 0, 0, 0, 0, 1305, 695, 0, 0, 0, 0, 1355, 652, 0, 0, 0, 0, 1412, 619, 0, 0, 0, 0, 1483, 593, 0, 0, 0, 0, 1578, 583, 0, 0, 0, 0, 1578, 583, 0, 0, 0, 0, 1611, 579)
+}
+point_count = 36
+
+[sub_resource type="Curve2D" id="Curve2D_ejxp4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2116, 0, 0, 0, 0, 0, 2206, 20, 0, 0, 0, 0, 2281, 72, 0, 0, 0, 0, 2312, 147, 0, 0, 0, 0, 2309, 238, 0, 0, 0, 0, 2277, 300, 0, 0, 0, 0, 2205, 348, 0, 0, 0, 0, 2138, 361, 0, 0, 0, 0, 2049, 357, 0, 0, 0, 0, 1971, 316, 0, 0, 0, 0, 1927, 245, 0, 0, 0, 0, 1932, 120, 0, 0, 0, 0, 1961, 54, 0, 0, 0, 0, 2017, 12, 0, 0, 0, 0, 2116, 0)
+}
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_yt6rj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2812, 322, 0, 0, 0, 0, 2894, 331, 0, 0, 0, 0, 2970, 386, 0, 0, 0, 0, 3007, 465, 0, 0, 0, 0, 3012, 556, 0, 0, 0, 0, 2973, 638, 0, 0, 0, 0, 2888, 694, 0, 0, 0, 0, 2778, 697, 0, 0, 0, 0, 2672, 650, 0, 0, 0, 0, 2640, 541, 0, 0, 0, 0, 2647, 432, 0, 0, 0, 0, 2684, 354, 0, 0, 0, 0, 2748, 322, 0, 0, 0, 0, 2812, 322)
+}
+point_count = 14
+
+[node name="Level_02" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_3hmhb")
+numLevel = 1
+
+[node name="TextureRect" parent="." instance=ExtResource("1_vbp7m")]
+offset_left = -882.0
+offset_top = -433.0
+offset_right = 3214.0
+offset_bottom = 1615.0
+
+[node name="Planeta_Terra" parent="." instance=ExtResource("2_sek8i")]
+position = Vector2(399, 724)
+
+[node name="Planeta_Marte" parent="." instance=ExtResource("6_visnw")]
+position = Vector2(644.419, 442.588)
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_Marte"]
+position = Vector2(-4, 74)
+
+[node name="Path2D" type="Path2D" parent="Planeta_Marte"]
+position = Vector2(-1004.42, -272.588)
+curve = SubResource("Curve2D_5fs6r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_Marte/Path2D"]
+position = Vector2(1029, 108)
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Marte/Path2D/PathFollow2D" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_Marte/Path2D"]
+position = Vector2(1130.53, 380.924)
+progress = 351.905
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Marte/Path2D/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_Marte/Path2D"]
+position = Vector2(853.008, 342.862)
+progress = 703.81
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Marte/Path2D/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="Planeta_Jupiter" parent="." instance=ExtResource("2_liva2")]
+position = Vector2(1609, 1157)
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_Jupiter"]
+position = Vector2(239, -182)
+
+[node name="Path2D2" type="Path2D" parent="Planeta_Jupiter"]
+position = Vector2(-1609, -957)
+curve = SubResource("Curve2D_42c75")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1726.93, 611.383)
+progress = 121.251
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1834.41, 664.675)
+progress = 242.502
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1925.36, 744.565)
+progress = 363.753
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D4" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1982.66, 850.946)
+progress = 485.005
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1993.96, 970.011)
+progress = 606.256
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D11" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1593.73, 1335.66)
+progress = 1212.51
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D11" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D12" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1475.1, 1319.36)
+progress = 1333.76
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D12" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D13" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1364.09, 1271.84)
+progress = 1455.01
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D13" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D16" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1220.61, 957.311)
+progress = 1818.77
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D16" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D17" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1232.39, 838.573)
+progress = 1940.02
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D17" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D18" type="PathFollow2D" parent="Planeta_Jupiter/Path2D2"]
+position = Vector2(1279.66, 727.939)
+progress = 2061.27
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Jupiter/Path2D2/PathFollow2D18" instance=ExtResource("2_1ekio")]
+
+[node name="Planeta_Urano" parent="." instance=ExtResource("6_rkrwn")]
+position = Vector2(2191, 231)
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_Urano"]
+position = Vector2(152, 76)
+
+[node name="Path2D3" type="Path2D" parent="Planeta_Urano"]
+position = Vector2(-2774.57, -228.082)
+scale = Vector2(1.31688, 1.33795)
+curve = SubResource("Curve2D_ejxp4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(2116, 0)
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(2229.49, 36.2883)
+progress = 120.787
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(2303.2, 125.72)
+progress = 241.574
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(2228.97, 332.022)
+progress = 483.148
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(2114.32, 359.936)
+progress = 603.935
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D7" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(1999.94, 331.213)
+progress = 724.721
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D7" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D8" type="PathFollow2D" parent="Planeta_Urano/Path2D3"]
+position = Vector2(1927.18, 240.419)
+progress = 845.508
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Urano/Path2D3/PathFollow2D8" instance=ExtResource("2_1ekio")]
+
+[node name="Planeta_Netuno" parent="." instance=ExtResource("7_gb4ir")]
+position = Vector2(2895, 713)
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_Netuno"]
+position = Vector2(0, -166)
+
+[node name="Path2D4" type="Path2D" parent="Planeta_Netuno"]
+position = Vector2(-3923.03, -711.365)
+scale = Vector2(1.38979, 1.38933)
+curve = SubResource("Curve2D_yt6rj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2812, 322)
+rotation = 0.109319
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D" instance=ExtResource("2_1ekio")]
+position = Vector2(-1.3742, -5.64194)
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2925.84, 354.04)
+rotation = 0.109319
+progress = 121.797
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2998.54, 446.942)
+rotation = 0.109319
+progress = 243.594
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2938.17, 660.945)
+rotation = 0.109319
+progress = 487.189
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D4" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2826.3, 695.683)
+rotation = 0.109319
+progress = 608.986
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2649.7, 574.057)
+rotation = 0.109319
+progress = 852.58
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D7" type="PathFollow2D" parent="Planeta_Netuno/Path2D4"]
+position = Vector2(2645.61, 453.647)
+rotation = 0.109319
+progress = 974.378
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_Netuno/Path2D4/PathFollow2D7" instance=ExtResource("2_1ekio")]
+
+[node name="FinishLine" parent="Planeta_Netuno" instance=ExtResource("13_kgh4x")]
+position = Vector2(3, -171)
+col_t = 0.5
+
+[node name="OVNI" parent="." instance=ExtResource("17_p3hyk")]
+position = Vector2(1393, 396)
+
+[node name="Foguete" parent="." instance=ExtResource("3_d6grf")]
+position = Vector2(462, 711)
+
+[node name="Figura" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(613, 604)
+scale = Vector2(1.75, 1.75)
+ang_correto = 60.0
+p_origem = NodePath("../Planeta_Terra")
+p_destino = NodePath("../Planeta_Marte")
+
+[node name="Figura2" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(1008, 824)
+ang_correto = 30.0
+p_origem = NodePath("../Planeta_Marte")
+p_destino = NodePath("../Planeta_Jupiter")
+
+[node name="AnimatedSprite2D" parent="Figura2" index="0"]
+position = Vector2(-28.5, -3.00027)
+scale = Vector2(3.98828, 3.15625)
+animation = &"triang_retangulo"
+flip_h = true
+
+[node name="Label" type="Label" parent="Figura2"]
+offset_left = 66.0
+offset_top = 99.0
+offset_right = 142.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 50
+text = "60º"
+
+[node name="Figura8" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(1008, 824)
+ang_correto = 50.0
+p_origem = NodePath("../Planeta_Marte")
+p_destino = NodePath("../Planeta_Urano")
+
+[node name="AnimatedSprite2D" parent="Figura8" index="0"]
+position = Vector2(38.1251, -428.938)
+scale = Vector2(3.50684, 1.10986)
+animation = &"triang_retangulo"
+
+[node name="Figura9" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(1008, 824)
+ang_correto = 50.0
+p_origem = NodePath("../Planeta_Marte")
+p_destino = NodePath("../Planeta_Urano")
+secundaria = true
+
+[node name="AnimatedSprite2D" parent="Figura9" index="0"]
+position = Vector2(-65.9999, -467)
+scale = Vector2(3.50684, 1.10986)
+animation = &"triang_retangulo"
+flip_h = true
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura9"]
+offset_left = 8.0
+offset_top = -549.0
+offset_right = 84.0
+offset_bottom = -480.0
+theme_override_font_sizes/font_size = 50
+text = "50º"
+
+[node name="Figura6" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(1208, 624)
+ang_correto = 60.0
+p_origem = NodePath("../Planeta_Terra")
+p_destino = NodePath("../Planeta_Jupiter")
+secundaria = true
+
+[node name="AnimatedSprite2D" parent="Figura6" index="0"]
+position = Vector2(-160, 155)
+scale = Vector2(2.29, 0.86)
+animation = &"triang_retangulo"
+flip_h = true
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura6"]
+offset_left = -305.95
+offset_top = 147.196
+offset_right = -229.95
+offset_bottom = 216.196
+theme_override_font_sizes/font_size = 50
+text = "30º"
+
+[node name="Figura7" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(1208, 624)
+ang_correto = 60.0
+p_origem = NodePath("../Planeta_Terra")
+p_destino = NodePath("../Planeta_Jupiter")
+
+[node name="AnimatedSprite2D" parent="Figura7" index="0"]
+position = Vector2(-507, 155)
+scale = Vector2(2.29017, 0.859764)
+animation = &"triang_retangulo"
+flip_v = true
+
+[node name="Figura3" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(210, 663)
+ang_correto = 50.0
+p_origem = NodePath("../Planeta_Jupiter")
+p_destino = NodePath("../Planeta_Urano")
+
+[node name="AnimatedSprite2D" parent="Figura3" index="0"]
+position = Vector2(1890, 93)
+scale = Vector2(4.2168, 4.03125)
+animation = &"triang_isosceles"
+
+[node name="Label" type="Label" parent="Figura3"]
+offset_left = 1841.95
+offset_top = 6.93713
+offset_right = 1917.95
+offset_bottom = 75.9371
+theme_override_font_sizes/font_size = 50
+text = "80º"
+
+[node name="Figura4" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(512, 1037)
+ang_correto = 30.0
+p_origem = NodePath("../Planeta_Urano")
+p_destino = NodePath("../Planeta_Netuno")
+
+[node name="AnimatedSprite2D" parent="Figura4" index="0"]
+position = Vector2(2058.36, -560.209)
+rotation = 0.18675
+scale = Vector2(3.58253, 3.46045)
+animation = &"triang_escaleno"
+flip_h = true
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura4"]
+offset_left = 2056.0
+offset_top = -780.0
+offset_right = 2161.0
+offset_bottom = -711.0
+theme_override_font_sizes/font_size = 50
+text = "140º"
+
+[node name="Label2" type="Label" parent="Figura4"]
+offset_left = 2240.0
+offset_top = -524.0
+offset_right = 2345.0
+offset_bottom = -455.0
+theme_override_font_sizes/font_size = 50
+text = "10º"
+
+[node name="Figura5" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(440, 1255)
+ang_correto = 30.0
+p_origem = NodePath("../Planeta_Jupiter")
+p_destino = NodePath("../Planeta_Netuno")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" parent="Figura5" index="0"]
+position = Vector2(1806, -356)
+scale = Vector2(5.33984, 2.44106)
+animation = &"triang_escaleno"
+flip_h = true
+
+[node name="Label2" type="Label" parent="Figura5"]
+offset_left = 1664.0
+offset_top = -435.0
+offset_right = 1740.0
+offset_bottom = -366.0
+theme_override_font_sizes/font_size = 50
+text = "135º"
+
+[node name="Label3" type="Label" parent="Figura5"]
+offset_left = 2020.0
+offset_top = -377.0
+offset_right = 2096.0
+offset_bottom = -308.0
+theme_override_font_sizes/font_size = 50
+text = "15º"
+
+[node name="UserTextBox" parent="." instance=ExtResource("12_tifgt")]
+
+[node name="Metrics HUD" parent="." instance=ExtResource("14_8u05g")]
+
+[node name="LevelEndNotif" parent="." instance=ExtResource("15_rfdbf")]
+visible = false
+
+[node name="Pause" parent="." instance=ExtResource("16_eo80r")]
+
+[node name="PauseMenu" parent="Pause" index="1"]
+visible = false
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(501, 718)
+
+[connection signal="calc" from="." to="Figura" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura2" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura8" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura9" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura6" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura7" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura3" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura4" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura5" method="_on_level_01_calc"]
+[connection signal="dir" from="." to="UserTextBox" method="_on_level_dir"]
+[connection signal="fim" from="." to="Metrics HUD" method="_on_fim"]
+[connection signal="fim" from="." to="LevelEndNotif" method="_on_fim"]
+[connection signal="launch_to" from="Planeta_Terra" to="." method="launch"]
+[connection signal="launch_to" from="Planeta_Marte" to="." method="launch"]
+[connection signal="selected" from="Planeta_Marte" to="Planeta_Marte" method="_on_selected"]
+[connection signal="selected" from="Planeta_Marte" to="Planeta_Jupiter" method="_on_selected"]
+[connection signal="selected" from="Planeta_Marte" to="Planeta_Urano" method="_on_selected"]
+[connection signal="selected" from="Planeta_Marte" to="Planeta_Netuno" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_Jupiter" to="." method="launch"]
+[connection signal="selected" from="Planeta_Jupiter" to="Planeta_Marte" method="_on_selected"]
+[connection signal="selected" from="Planeta_Jupiter" to="Planeta_Jupiter" method="_on_selected"]
+[connection signal="selected" from="Planeta_Jupiter" to="Planeta_Urano" method="_on_selected"]
+[connection signal="selected" from="Planeta_Jupiter" to="Planeta_Netuno" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_Urano" to="." method="launch"]
+[connection signal="selected" from="Planeta_Urano" to="Planeta_Marte" method="_on_selected"]
+[connection signal="selected" from="Planeta_Urano" to="Planeta_Jupiter" method="_on_selected"]
+[connection signal="selected" from="Planeta_Urano" to="Planeta_Netuno" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_Netuno" to="." method="launch"]
+[connection signal="selected" from="Planeta_Netuno" to="Planeta_Marte" method="_on_selected"]
+[connection signal="selected" from="Planeta_Netuno" to="Planeta_Jupiter" method="_on_selected"]
+[connection signal="selected" from="Planeta_Netuno" to="Planeta_Urano" method="_on_selected"]
+[connection signal="selected" from="Planeta_Netuno" to="Planeta_Netuno" method="_on_selected"]
+[connection signal="body_entered" from="Planeta_Netuno/FinishLine" to="." method="_on_finish_line_body_entered"]
+[connection signal="hit" from="Foguete" to="Planeta_Marte" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_Jupiter" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_Urano" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_Netuno" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Metrics HUD" method="_on_foguete_hit"]
+[connection signal="moving" from="Foguete" to="OVNI" method="_on_foguete_moving"]
+[connection signal="planet_reached" from="Foguete" to="." method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_Marte" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_Jupiter" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_Urano" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_Netuno" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Metrics HUD" method="_on_foguete_planet_reached"]
+[connection signal="call_textbox" from="Figura" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura2" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura8" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura9" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura6" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura7" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura3" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura4" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura5" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="correct" from="UserTextBox" to="Figura" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura2" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura8" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura9" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura6" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura7" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura3" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura4" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura5" method="_on_user_text_box_correct"]
+[connection signal="error" from="UserTextBox" to="Metrics HUD" method="_on_user_text_box_error"]
+[connection signal="launch_sequence" from="UserTextBox" to="." method="_on_user_text_box_launch_sequence"]
+
+[editable path="Figura2"]
+[editable path="Figura8"]
+[editable path="Figura9"]
+[editable path="Figura6"]
+[editable path="Figura7"]
+[editable path="Figura3"]
+[editable path="Figura4"]
+[editable path="Figura5"]
+[editable path="Pause"]

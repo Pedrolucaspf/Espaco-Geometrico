@@ -1,0 +1,1074 @@
+[gd_scene load_steps=44 format=3 uid="uid://4b0n58x0jfit"]
+
+[ext_resource type="Script" path="res://level_01.gd" id="1_3hmhb"]
+[ext_resource type="PackedScene" uid="uid://ci141jawudcqb" path="res://background_espaço.tscn" id="1_vbp7m"]
+[ext_resource type="PackedScene" uid="uid://dsao8tfj8bu54" path="res://Asteroide.tscn" id="2_1ekio"]
+[ext_resource type="PackedScene" uid="uid://brfb1wof4yhed" path="res://planeta_terra.tscn" id="2_sek8i"]
+[ext_resource type="Texture2D" uid="uid://dmy8oj74d3po" path="res://Espaço (3).png" id="3_bijbs"]
+[ext_resource type="PackedScene" uid="uid://dnyyfcwli2qj8" path="res://Foguete.tscn" id="3_d6grf"]
+[ext_resource type="PackedScene" uid="uid://04d2w17rqfap" path="res://planeta_1.tscn" id="4_305tc"]
+[ext_resource type="Texture2D" uid="uid://b8lw7qvxio63i" path="res://Planeta_1.png" id="5_nfrua"]
+[ext_resource type="Texture2D" uid="uid://c6aqdhu3j64vd" path="res://Planeta_1_M.png" id="6_3f0a1"]
+[ext_resource type="PackedScene" uid="uid://cv5sn4bmy1cuv" path="res://planeta_2.tscn" id="7_kjgjp"]
+[ext_resource type="PackedScene" uid="uid://doieng5yvixps" path="res://planeta_3.tscn" id="8_5evg0"]
+[ext_resource type="Texture2D" uid="uid://dwj55ppy1spdr" path="res://Planeta_6.png" id="8_qg1jt"]
+[ext_resource type="Texture2D" uid="uid://b17gtqqrge882" path="res://Planeta_6_M.png" id="9_1vym3"]
+[ext_resource type="PackedScene" uid="uid://5hb1lrdvnsk7" path="res://planeta_4.tscn" id="9_2owkj"]
+[ext_resource type="Script" path="res://path_follow_2d.gd" id="9_fbdl8"]
+[ext_resource type="PackedScene" uid="uid://ko0h1f5k4yo2" path="res://planeta_5.tscn" id="10_xrdmf"]
+[ext_resource type="PackedScene" uid="uid://dtlx3g4bkapqo" path="res://figura.tscn" id="11_tl7hs"]
+[ext_resource type="PackedScene" uid="uid://c065dlbwy0p4n" path="res://user_text_box.tscn" id="12_tifgt"]
+[ext_resource type="PackedScene" uid="uid://mli62v1wfxfg" path="res://finish_line.tscn" id="13_kgh4x"]
+[ext_resource type="Texture2D" uid="uid://bly1o38ovd7p7" path="res://Planeta_7.png" id="13_o5dlw"]
+[ext_resource type="PackedScene" uid="uid://vogy05tmjfq0" path="res://metricshud.tscn" id="14_8u05g"]
+[ext_resource type="Texture2D" uid="uid://b8g3hh4sil8gl" path="res://Planeta_7_M.png" id="14_v4d5k"]
+[ext_resource type="PackedScene" uid="uid://qiu8wqmm011p" path="res://level_end_popup.tscn" id="15_rfdbf"]
+[ext_resource type="Texture2D" uid="uid://dirjlrd4kwre3" path="res://Planeta_8.png" id="16_ckhcw"]
+[ext_resource type="PackedScene" uid="uid://cvgsq0xdk5f5a" path="res://pause.tscn" id="16_eo80r"]
+[ext_resource type="Texture2D" uid="uid://bahaklgh1kmac" path="res://Planeta_8_M.png" id="17_1hxbi"]
+[ext_resource type="PackedScene" uid="uid://cpn0gvd7e7coo" path="res://ovni.tscn" id="17_p3hyk"]
+[ext_resource type="Texture2D" uid="uid://fysvj4dhl45s" path="res://Planeta_9.png" id="19_y45ht"]
+[ext_resource type="Texture2D" uid="uid://bb14jduk6ad6g" path="res://Planeta_9_M.png" id="20_tf6ak"]
+[ext_resource type="Texture2D" uid="uid://cunhm8hgn5jro" path="res://Estrela_Da_Morte.png" id="22_0jd5e"]
+[ext_resource type="Texture2D" uid="uid://b22gg2qxmriyn" path="res://Estrela_Da_Morte_M.png" id="23_f65jd"]
+[ext_resource type="Script" path="res://path_follow_ovni.gd" id="25_ik8m0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agkv0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nfrua")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3f0a1")
+}],
+"loop": true,
+"name": &"marcado",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8g3y"]
+radius = 560.201
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gy0ha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qg1jt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_1vym3")
+}],
+"loop": true,
+"name": &"marcado",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_yt6rj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2812, 322, 0, 0, 0, 0, 2894, 331, 0, 0, 0, 0, 2970, 386, 0, 0, 0, 0, 3007, 465, 0, 0, 0, 0, 3012, 556, 0, 0, 0, 0, 2973, 638, 0, 0, 0, 0, 2888, 694, 0, 0, 0, 0, 2778, 697, 0, 0, 0, 0, 2672, 650, 0, 0, 0, 0, 2640, 541, 0, 0, 0, 0, 2647, 432, 0, 0, 0, 0, 2684, 354, 0, 0, 0, 0, 2748, 322, 0, 0, 0, 0, 2812, 322)
+}
+point_count = 14
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_et71f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_o5dlw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_v4d5k")
+}],
+"loop": true,
+"name": &"marcado",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_5fs6r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1029, 108, 0, 0, 0, 0, 1069, 126, 0, 0, 0, 0, 1120, 157, 0, 0, 0, 0, 1155, 209, 0, 0, 0, 0, 1174, 276, 0, 0, 0, 0, 1154, 353, 0, 0, 0, 0, 1096, 422, 0, 0, 0, 0, 1031, 448, 0, 0, 0, 0, 969, 452, 0, 0, 0, 0, 911, 425, 0, 0, 0, 0, 858, 362, 0, 0, 0, 0, 834, 270, 0, 0, 0, 0, 862, 178, 0, 0, 0, 0, 924, 120, 0, 0, 0, 0, 973, 109, 0, 0, 0, 0, 1029, 108)
+}
+point_count = 16
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk20u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_ckhcw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_1hxbi")
+}],
+"loop": true,
+"name": &"marcado",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_42c75"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1611, 579, 0, 0, 0, 0, 1615, 583, 0, 0, 0, 0, 1712, 606, 0, 0, 0, 0, 1798, 637, 0, 0, 0, 0, 1873, 694, 0, 0, 0, 0, 1925, 744, 0, 0, 0, 0, 1951, 798, 0, 0, 0, 0, 1981, 845, 0, 0, 0, 0, 1998, 906, 0, 0, 0, 0, 1991, 1017, 0, 0, 0, 0, 1951, 1131, 0, 0, 0, 0, 1880, 1228, 0, 0, 0, 0, 1880, 1228, 0, 0, 0, 0, 1773, 1302, 0, 0, 0, 0, 1773, 1302, 0, 0, 0, 0, 1699, 1339, 0, 0, 0, 0, 1699, 1339, 0, 0, 0, 0, 1510, 1333, 0, 0, 0, 0, 1510, 1333, 0, 0, 0, 0, 1423, 1299, 0, 0, 0, 0, 1386, 1286, 0, 0, 0, 0, 1321, 1244, 0, 0, 0, 0, 1295, 1208, 0, 0, 0, 0, 1295, 1208, 0, 0, 0, 0, 1248, 1141, 0, 0, 0, 0, 1234, 1087, 0, 0, 0, 0, 1221, 969, 0, 0, 0, 0, 1218, 879, 0, 0, 0, 0, 1265, 747, 0, 0, 0, 0, 1305, 695, 0, 0, 0, 0, 1355, 652, 0, 0, 0, 0, 1412, 619, 0, 0, 0, 0, 1483, 593, 0, 0, 0, 0, 1578, 583, 0, 0, 0, 0, 1578, 583, 0, 0, 0, 0, 1611, 579)
+}
+point_count = 36
+
+[sub_resource type="Curve2D" id="Curve2D_ejxp4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2116, 0, 0, 0, 0, 0, 2206, 20, 0, 0, 0, 0, 2281, 72, 0, 0, 0, 0, 2312, 147, 0, 0, 0, 0, 2309, 238, 0, 0, 0, 0, 2277, 300, 0, 0, 0, 0, 2243.17, 333.442, 0, 0, 0, 0, 2205, 348, 0, 0, 0, 0, 2138, 361, 0, 0, 0, 0, 2049, 357, 0, 0, 0, 0, 1971, 316, 0, 0, 0, 0, 1927, 245, 0, 0, 0, 0, 1932, 120, 0, 0, 0, 0, 1961, 54, 0, 0, 0, 0, 2017, 12, 0, 0, 0, 0, 2116, 0)
+}
+point_count = 16
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3b1ya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_y45ht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_tf6ak")
+}],
+"loop": true,
+"name": &"marcado",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j518b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_0jd5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_f65jd")
+}],
+"loop": true,
+"name": &"marcado",
+"speed": 5.0
+}]
+
+[node name="Level_03" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_3hmhb")
+numLevel = 3
+
+[node name="TextureRect" parent="." instance=ExtResource("1_vbp7m")]
+offset_left = -882.0
+offset_top = -433.0
+offset_right = 3214.0
+offset_bottom = 1615.0
+texture = ExtResource("3_bijbs")
+
+[node name="Planeta_Ini" parent="." instance=ExtResource("2_sek8i")]
+position = Vector2(-750, 103)
+
+[node name="AnimatedSprite2D" parent="Planeta_Ini" index="0"]
+modulate = Color(0.845592, 0.00358921, 0.526023, 1)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_agkv0")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="Planeta_Ini" index="1"]
+shape = SubResource("CircleShape2D_n8g3y")
+
+[node name="Planeta_1" parent="." instance=ExtResource("4_305tc")]
+position = Vector2(-261, 704)
+
+[node name="AnimatedSprite2D" parent="Planeta_1" index="0"]
+sprite_frames = SubResource("SpriteFrames_gy0ha")
+
+[node name="Path2D4" type="Path2D" parent="Planeta_1"]
+position = Vector2(-3923.03, -711.365)
+scale = Vector2(1.38979, 1.38933)
+curve = SubResource("Curve2D_yt6rj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2812, 322)
+rotation = 0.109319
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D" instance=ExtResource("2_1ekio")]
+position = Vector2(-1.3742, -5.64194)
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2925.84, 354.04)
+rotation = 0.109319
+progress = 121.797
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2998.54, 446.942)
+rotation = 0.109319
+progress = 243.594
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2938.17, 660.945)
+rotation = 0.109319
+progress = 487.189
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D4" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2826.3, 695.683)
+rotation = 0.109319
+progress = 608.986
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D8" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2710.83, 667.218)
+rotation = 0.109319
+progress = 730.783
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D8" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2649.7, 574.057)
+rotation = 0.109319
+progress = 852.58
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D7" type="PathFollow2D" parent="Planeta_1/Path2D4"]
+position = Vector2(2645.61, 453.647)
+rotation = 0.109319
+progress = 974.378
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_1/Path2D4/PathFollow2D7" instance=ExtResource("2_1ekio")]
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_1"]
+position = Vector2(163, -5)
+
+[node name="Planeta_2" parent="." instance=ExtResource("7_kjgjp")]
+position = Vector2(715, 315)
+
+[node name="AnimatedSprite2D" parent="Planeta_2" index="0"]
+sprite_frames = SubResource("SpriteFrames_et71f")
+
+[node name="Path2D4" type="Path2D" parent="Planeta_2"]
+position = Vector2(-3923.03, -711.365)
+scale = Vector2(1.38979, 1.38933)
+curve = SubResource("Curve2D_yt6rj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2812, 322)
+rotation = 0.109319
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D" instance=ExtResource("2_1ekio")]
+position = Vector2(-1.3742, -5.64194)
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2925.84, 354.04)
+rotation = 0.109319
+progress = 121.797
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2998.54, 446.942)
+rotation = 0.109319
+progress = 243.594
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2938.17, 660.945)
+rotation = 0.109319
+progress = 487.189
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D4" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2826.3, 695.683)
+rotation = 0.109319
+progress = 608.986
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2649.7, 574.057)
+rotation = 0.109319
+progress = 852.58
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D7" type="PathFollow2D" parent="Planeta_2/Path2D4"]
+position = Vector2(2645.61, 453.647)
+rotation = 0.109319
+progress = 974.378
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D4/PathFollow2D7" instance=ExtResource("2_1ekio")]
+
+[node name="Path2D" type="Path2D" parent="Planeta_2"]
+position = Vector2(-1004.42, -272.588)
+curve = SubResource("Curve2D_5fs6r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_2/Path2D"]
+position = Vector2(1029, 108)
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D/PathFollow2D" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_2/Path2D"]
+position = Vector2(1130.53, 380.924)
+progress = 351.905
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_2/Path2D"]
+position = Vector2(853.008, 342.862)
+progress = 703.81
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_2/Path2D/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_2"]
+position = Vector2(-4.86475, 103.653)
+
+[node name="Planeta_3" parent="." instance=ExtResource("8_5evg0")]
+position = Vector2(1094, 978)
+
+[node name="AnimatedSprite2D" parent="Planeta_3" index="0"]
+sprite_frames = SubResource("SpriteFrames_rk20u")
+
+[node name="TextureButton" parent="Planeta_3" index="2"]
+offset_left = -175.0
+offset_top = -170.0
+offset_right = 168.0
+offset_bottom = 164.0
+
+[node name="Path2D2" type="Path2D" parent="Planeta_3"]
+position = Vector2(-1879.12, -1101.94)
+scale = Vector2(1.16923, 1.16053)
+curve = SubResource("Curve2D_42c75")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1726.93, 611.383)
+progress = 121.251
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1834.41, 664.675)
+progress = 242.502
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1925.36, 744.565)
+progress = 363.753
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D4" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1982.66, 850.946)
+progress = 485.005
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1993.96, 970.011)
+progress = 606.256
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D11" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1593.73, 1335.66)
+progress = 1212.51
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D11" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D12" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1475.1, 1319.36)
+progress = 1333.76
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D12" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D13" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1364.09, 1271.84)
+progress = 1455.01
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D13" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D16" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1220.61, 957.311)
+progress = 1818.77
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D16" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D17" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1232.39, 838.573)
+progress = 1940.02
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D17" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D18" type="PathFollow2D" parent="Planeta_3/Path2D2"]
+position = Vector2(1279.66, 727.939)
+progress = 2061.27
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_3/Path2D2/PathFollow2D18" instance=ExtResource("2_1ekio")]
+
+[node name="Path2D3" type="Path2D" parent="Planeta_3"]
+position = Vector2(-4083.85, -346)
+scale = Vector2(1.92468, 1.94183)
+curve = SubResource("Curve2D_ejxp4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(2116, 0)
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(2229.49, 36.2883)
+progress = 120.787
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(2303.2, 125.72)
+progress = 241.574
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(2233.72, 337.048)
+progress = 483.148
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(2116.21, 360.021)
+progress = 603.935
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D7" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(2001.61, 332.091)
+progress = 724.721
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D7" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D8" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(1927.1, 242.486)
+progress = 845.508
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D8" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D9" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(1956.23, 64.8579)
+progress = 1028.29
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D9" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D10" type="PathFollow2D" parent="Planeta_3/Path2D3"]
+position = Vector2(1930.78, 150.487)
+progress = 937.562
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 1.5
+
+[node name="Asteroide" parent="Planeta_3/Path2D3/PathFollow2D10" instance=ExtResource("2_1ekio")]
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_3"]
+position = Vector2(243.946, -51.1322)
+
+[node name="Planeta_4" parent="." instance=ExtResource("9_2owkj")]
+position = Vector2(1856, 614)
+
+[node name="AnimatedSprite2D" parent="Planeta_4" index="0"]
+sprite_frames = SubResource("SpriteFrames_3b1ya")
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_4"]
+position = Vector2(150.17, -9.1322)
+
+[node name="Path2D3" type="Path2D" parent="Planeta_4"]
+position = Vector2(-3064.9, -262)
+scale = Vector2(1.46751, 1.46537)
+curve = SubResource("Curve2D_ejxp4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(2116, 0)
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(2229.49, 36.2883)
+progress = 120.787
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(2303.2, 125.72)
+progress = 241.574
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(2233.72, 337.048)
+progress = 483.148
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D5" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D6" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(2116.21, 360.021)
+progress = 603.935
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D6" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D7" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(2001.61, 332.091)
+progress = 724.721
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D7" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D8" type="PathFollow2D" parent="Planeta_4/Path2D3"]
+position = Vector2(1931.95, 120.183)
+progress = 967.805
+rotates = false
+script = ExtResource("9_fbdl8")
+speed = 2.0
+
+[node name="Asteroide" parent="Planeta_4/Path2D3/PathFollow2D8" instance=ExtResource("2_1ekio")]
+
+[node name="Path2D" type="Path2D" parent="Planeta_4"]
+position = Vector2(-1155.08, -281.877)
+scale = Vector2(1.18065, 1.08601)
+curve = SubResource("Curve2D_5fs6r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_4/Path2D"]
+position = Vector2(1029, 108)
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_4/Path2D/PathFollow2D" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Planeta_4/Path2D"]
+position = Vector2(1130.53, 380.924)
+progress = 351.905
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_4/Path2D/PathFollow2D2" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Planeta_4/Path2D"]
+position = Vector2(853.008, 342.862)
+progress = 703.81
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_4/Path2D/PathFollow2D3" instance=ExtResource("2_1ekio")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Planeta_4/Path2D"]
+position = Vector2(944.404, 115.42)
+progress = 981.068
+rotates = false
+script = ExtResource("9_fbdl8")
+
+[node name="Asteroide" parent="Planeta_4/Path2D/PathFollow2D4" instance=ExtResource("2_1ekio")]
+
+[node name="Planeta_5" parent="." instance=ExtResource("10_xrdmf")]
+position = Vector2(2890, 760)
+
+[node name="AnimatedSprite2D" parent="Planeta_5" index="0"]
+sprite_frames = SubResource("SpriteFrames_j518b")
+
+[node name="FinishLine" parent="Planeta_5" instance=ExtResource("13_kgh4x")]
+position = Vector2(3, -171)
+col_t = 0.5
+
+[node name="Marker2D" type="Marker2D" parent="Planeta_5"]
+position = Vector2(-0.224365, -169.888)
+
+[node name="Path2D3" type="Path2D" parent="Planeta_5"]
+position = Vector2(-2774.57, -228.082)
+scale = Vector2(1.31688, 1.33795)
+curve = SubResource("Curve2D_ejxp4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(2116, 0)
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D" instance=ExtResource("17_p3hyk")]
+
+[node name="PathFollow2D8" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(2115.27, 359.978)
+progress = 604.878
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D8" instance=ExtResource("17_p3hyk")]
+
+[node name="PathFollow2D9" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(2310.75, 184.801)
+progress = 302.439
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D9" instance=ExtResource("17_p3hyk")]
+
+[node name="PathFollow2D10" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(1929.58, 180.575)
+progress = 907.318
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D10" instance=ExtResource("17_p3hyk")]
+
+[node name="PathFollow2D11" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(2256.93, 319.843)
+progress = 453.659
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D11" instance=ExtResource("17_p3hyk")]
+
+[node name="PathFollow2D12" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(2254.51, 53.6353)
+progress = 151.22
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D12" instance=ExtResource("17_p3hyk")]
+
+[node name="PathFollow2D13" type="PathFollow2D" parent="Planeta_5/Path2D3"]
+position = Vector2(1975.8, 42.9021)
+progress = 1058.54
+rotates = false
+script = ExtResource("25_ik8m0")
+
+[node name="OVNI" parent="Planeta_5/Path2D3/PathFollow2D13" instance=ExtResource("17_p3hyk")]
+
+[node name="Foguete" parent="." instance=ExtResource("3_d6grf")]
+position = Vector2(-626, 114)
+
+[node name="Camera2D" parent="Foguete" index="2"]
+zoom = Vector2(0.45, 0.45)
+
+[node name="UserTextBox" parent="." instance=ExtResource("12_tifgt")]
+
+[node name="Figura" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(-791, -9)
+scale = Vector2(1.75, 1.75)
+ang_correto = 45.0
+p_origem = NodePath("../Planeta_Ini")
+p_destino = NodePath("../Planeta_1")
+
+[node name="AnimatedSprite2D" parent="Figura" index="0"]
+position = Vector2(150.286, 142.857)
+scale = Vector2(2.38393, 1.60826)
+animation = &"retas cortadas 5"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura"]
+offset_left = 141.714
+offset_top = 246.857
+offset_right = 193.714
+offset_bottom = 281.857
+theme_override_font_sizes/font_size = 25
+text = "135º
+"
+
+[node name="Figura2" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(-444, 1056)
+ang_correto = 124.0
+p_origem = NodePath("../Planeta_1")
+p_destino = NodePath("../Planeta_2")
+
+[node name="AnimatedSprite2D" parent="Figura2" index="0"]
+position = Vector2(518, -443)
+rotation = 1.8675
+scale = Vector2(6.54205, 3.19348)
+animation = &"retas cortadas 4"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura2"]
+offset_left = 508.0
+offset_top = -612.0
+offset_right = 613.0
+offset_bottom = -543.0
+theme_override_font_sizes/font_size = 50
+text = "124º
+"
+
+[node name="Figura3" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(-554, 1036)
+ang_correto = 40.0
+p_origem = NodePath("../Planeta_2")
+p_destino = NodePath("../Planeta_3")
+
+[node name="AnimatedSprite2D" parent="Figura3" index="0"]
+position = Vector2(1167, -763)
+scale = Vector2(4.24736, 3.10492)
+animation = &"retas cortadas 2"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura3"]
+offset_left = 1161.0
+offset_top = -983.0
+offset_right = 1266.0
+offset_bottom = -914.0
+theme_override_font_sizes/font_size = 50
+text = "140º"
+metadata/_edit_group_ = true
+
+[node name="Figura4" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(-531, 953)
+ang_correto = 154.0
+p_origem = NodePath("../Planeta_3")
+p_destino = NodePath("../Planeta_4")
+
+[node name="AnimatedSprite2D" parent="Figura4" index="0"]
+position = Vector2(2045, -135)
+rotation = 2.0944
+scale = Vector2(5.52078, 2.84984)
+animation = &"retas cortadas B - 2"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura4"]
+offset_left = 2112.0
+offset_top = -198.0
+offset_right = 2217.0
+offset_bottom = -129.0
+theme_override_font_sizes/font_size = 50
+text = "26º"
+
+[node name="Figura5" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(325, 1023)
+ang_correto = 36.0
+p_origem = NodePath("../Planeta_4")
+p_destino = NodePath("../Planeta_5")
+
+[node name="AnimatedSprite2D" parent="Figura5" index="0"]
+position = Vector2(1938, -446)
+scale = Vector2(6.4292, 1.74902)
+animation = &"retas cortadas B - 3"
+flip_v = true
+
+[node name="Label3" type="Label" parent="Figura5"]
+offset_left = 2081.0
+offset_top = -312.0
+offset_right = 2186.0
+offset_bottom = -243.0
+theme_override_font_sizes/font_size = 50
+text = "144º"
+
+[node name="Figura6" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(1506, 968)
+ang_correto = 115.0
+p_origem = NodePath("../Planeta_2")
+p_destino = NodePath("../Planeta_4")
+
+[node name="AnimatedSprite2D" parent="Figura6" index="0"]
+position = Vector2(-635, -563)
+rotation = 2.21657
+scale = Vector2(3, 3)
+animation = &"retas cortadas 4"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura6"]
+offset_left = -602.0
+offset_top = -651.0
+offset_right = -497.0
+offset_bottom = -582.0
+theme_override_font_sizes/font_size = 50
+text = "115º"
+
+[node name="Figura7" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(734, 912)
+ang_correto = 27.0
+p_origem = NodePath("../Planeta_1")
+p_destino = NodePath("../Planeta_3")
+
+[node name="AnimatedSprite2D" parent="Figura7" index="0"]
+position = Vector2(-1046, -272)
+scale = Vector2(4.853, 1.291)
+animation = &"retas cortadas B - 4"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura7"]
+offset_left = -1102.0
+offset_top = -336.0
+offset_right = -1026.0
+offset_bottom = -267.0
+theme_override_font_sizes/font_size = 50
+text = "27º
+"
+
+[node name="Figura8" parent="." node_paths=PackedStringArray("p_origem", "p_destino") instance=ExtResource("11_tl7hs")]
+visible = false
+position = Vector2(-1032, 1022)
+ang_correto = 18.0
+p_origem = NodePath("../Planeta_Ini")
+p_destino = NodePath("../Planeta_2")
+
+[node name="AnimatedSprite2D" parent="Figura8" index="0"]
+position = Vector2(683.031, -881.015)
+scale = Vector2(5.96851, 1.00793)
+animation = &"retas cortadas B - 3"
+flip_v = true
+
+[node name="Label" type="Label" parent="Figura8"]
+offset_left = 838.0
+offset_top = -796.0
+offset_right = 943.0
+offset_bottom = -727.0
+theme_override_font_sizes/font_size = 50
+text = "162º"
+
+[node name="Metrics HUD" parent="." instance=ExtResource("14_8u05g")]
+
+[node name="LevelEndNotif" parent="." instance=ExtResource("15_rfdbf")]
+visible = false
+
+[node name="Pause" parent="." instance=ExtResource("16_eo80r")]
+
+[node name="PauseMenu" parent="Pause" index="1"]
+visible = false
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(-546, 108)
+
+[connection signal="calc" from="." to="Figura" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura2" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura3" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura4" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura5" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura6" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura7" method="_on_level_01_calc"]
+[connection signal="calc" from="." to="Figura8" method="_on_level_01_calc"]
+[connection signal="fim" from="." to="Metrics HUD" method="_on_fim"]
+[connection signal="fim" from="." to="LevelEndNotif" method="_on_fim"]
+[connection signal="invalid" from="." to="Planeta_Ini" method="_on_level_01_invalid"]
+[connection signal="invalid" from="." to="Planeta_1" method="_on_level_01_invalid"]
+[connection signal="invalid" from="." to="Planeta_2" method="_on_level_01_invalid"]
+[connection signal="invalid" from="." to="Planeta_3" method="_on_level_01_invalid"]
+[connection signal="invalid" from="." to="Planeta_4" method="_on_level_01_invalid"]
+[connection signal="invalid" from="." to="Planeta_5" method="_on_level_01_invalid"]
+[connection signal="launch_to" from="Planeta_Ini" to="." method="launch"]
+[connection signal="selected" from="Planeta_Ini" to="Planeta_Ini" method="_on_selected"]
+[connection signal="selected" from="Planeta_Ini" to="Planeta_1" method="_on_selected"]
+[connection signal="selected" from="Planeta_Ini" to="Planeta_2" method="_on_selected"]
+[connection signal="selected" from="Planeta_Ini" to="Planeta_3" method="_on_selected"]
+[connection signal="selected" from="Planeta_Ini" to="Planeta_4" method="_on_selected"]
+[connection signal="selected" from="Planeta_Ini" to="Planeta_5" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_1" to="." method="launch"]
+[connection signal="selected" from="Planeta_1" to="Planeta_1" method="_on_selected"]
+[connection signal="selected" from="Planeta_1" to="Planeta_2" method="_on_selected"]
+[connection signal="selected" from="Planeta_1" to="Planeta_3" method="_on_selected"]
+[connection signal="selected" from="Planeta_1" to="Planeta_4" method="_on_selected"]
+[connection signal="selected" from="Planeta_1" to="Planeta_5" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_2" to="." method="launch"]
+[connection signal="selected" from="Planeta_2" to="Planeta_1" method="_on_selected"]
+[connection signal="selected" from="Planeta_2" to="Planeta_2" method="_on_selected"]
+[connection signal="selected" from="Planeta_2" to="Planeta_3" method="_on_selected"]
+[connection signal="selected" from="Planeta_2" to="Planeta_4" method="_on_selected"]
+[connection signal="selected" from="Planeta_2" to="Planeta_5" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_3" to="." method="launch"]
+[connection signal="selected" from="Planeta_3" to="Planeta_1" method="_on_selected"]
+[connection signal="selected" from="Planeta_3" to="Planeta_2" method="_on_selected"]
+[connection signal="selected" from="Planeta_3" to="Planeta_3" method="_on_selected"]
+[connection signal="selected" from="Planeta_3" to="Planeta_4" method="_on_selected"]
+[connection signal="selected" from="Planeta_3" to="Planeta_5" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_4" to="." method="launch"]
+[connection signal="selected" from="Planeta_4" to="Planeta_1" method="_on_selected"]
+[connection signal="selected" from="Planeta_4" to="Planeta_2" method="_on_selected"]
+[connection signal="selected" from="Planeta_4" to="Planeta_3" method="_on_selected"]
+[connection signal="selected" from="Planeta_4" to="Planeta_4" method="_on_selected"]
+[connection signal="selected" from="Planeta_4" to="Planeta_5" method="_on_selected"]
+[connection signal="launch_to" from="Planeta_5" to="." method="launch"]
+[connection signal="selected" from="Planeta_5" to="Planeta_1" method="_on_selected"]
+[connection signal="selected" from="Planeta_5" to="Planeta_2" method="_on_selected"]
+[connection signal="selected" from="Planeta_5" to="Planeta_3" method="_on_selected"]
+[connection signal="selected" from="Planeta_5" to="Planeta_4" method="_on_selected"]
+[connection signal="selected" from="Planeta_5" to="Planeta_5" method="_on_selected"]
+[connection signal="body_entered" from="Planeta_5/FinishLine" to="." method="_on_finish_line_body_entered"]
+[connection signal="hit" from="Foguete" to="Planeta_1" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_2" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_3" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_4" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Planeta_5" method="_on_foguete_hit"]
+[connection signal="hit" from="Foguete" to="Metrics HUD" method="_on_foguete_hit"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D/OVNI" method="_on_foguete_moving"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D8/OVNI" method="_on_foguete_moving"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D9/OVNI" method="_on_foguete_moving"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D10/OVNI" method="_on_foguete_moving"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D11/OVNI" method="_on_foguete_moving"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D12/OVNI" method="_on_foguete_moving"]
+[connection signal="moving" from="Foguete" to="Planeta_5/Path2D3/PathFollow2D13/OVNI" method="_on_foguete_moving"]
+[connection signal="planet_reached" from="Foguete" to="." method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_1" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_2" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_3" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_4" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Planeta_5" method="_on_foguete_planet_reached"]
+[connection signal="planet_reached" from="Foguete" to="Metrics HUD" method="_on_foguete_planet_reached"]
+[connection signal="correct" from="UserTextBox" to="Figura" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura2" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura3" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura4" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura5" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura6" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura7" method="_on_user_text_box_correct"]
+[connection signal="correct" from="UserTextBox" to="Figura8" method="_on_user_text_box_correct"]
+[connection signal="error" from="UserTextBox" to="Metrics HUD" method="_on_user_text_box_error"]
+[connection signal="launch_sequence" from="UserTextBox" to="." method="_on_user_text_box_launch_sequence"]
+[connection signal="call_textbox" from="Figura" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura2" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura3" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura4" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura5" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura6" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura7" to="UserTextBox" method="_on_call_textbox"]
+[connection signal="call_textbox" from="Figura8" to="UserTextBox" method="_on_call_textbox"]
+
+[editable path="Planeta_Ini"]
+[editable path="Planeta_1"]
+[editable path="Planeta_2"]
+[editable path="Planeta_3"]
+[editable path="Planeta_4"]
+[editable path="Planeta_5"]
+[editable path="Foguete"]
+[editable path="Figura"]
+[editable path="Figura2"]
+[editable path="Figura3"]
+[editable path="Figura4"]
+[editable path="Figura5"]
+[editable path="Figura6"]
+[editable path="Figura7"]
+[editable path="Figura8"]
+[editable path="Pause"]
