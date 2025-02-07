@@ -8,7 +8,7 @@ Desenvolvemos o jogo na plataforma Godot, versão 4.3.
 
 O objetivo principal da Disciplina era a criação de jogos com fins educativos para alunos do Ensino Fundamental. Com isso, escolhemos trabalhar com a matéria de geometria. 
 Mais especificamente, o cálculo de ângulos de figuras geométricas, matéria que costuma ser dada no Sétimo Ano do Ensino Fundamental.
-Para tornar a experiência mais divertida, escolhemos uma temática de viagem interplanetária, e contextualizamos os ângulos que deveriam ser cálculados como o ângulo de lançamento do foguete.
+Para tornar a experiência mais divertida, escolhemos uma temática de viagem interplanetária, e contextualizamos os ângulos que deveriam ser calculados como o ângulo de lançamento do foguete.
 
 ![image](https://github.com/user-attachments/assets/53e93116-29b9-4337-828f-dacce3003c57)
 
